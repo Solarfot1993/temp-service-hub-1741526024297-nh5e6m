@@ -1,0 +1,341 @@
+import { Service, Review, Booking } from '../types';
+
+export const mockServices: Service[] = [
+  {
+    id: '1',
+    title: 'Professional House Cleaning',
+    description: 'Comprehensive house cleaning service that leaves your home spotless. Our professional cleaners use eco-friendly products and pay attention to every detail.',
+    price: 35,
+    category: 'Cleaning',
+    imageUrl: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+    rating: 4.8,
+    reviewCount: 156,
+    location: 'New York, NY',
+    duration: '3-4 hours',
+    availability: 'Mon-Sat, 8am-6pm',
+    includes: [
+      'Kitchen deep cleaning',
+      'Bathroom sanitization',
+      'Dusting and vacuuming',
+      'Floor mopping',
+      'Bed making'
+    ],
+    additionalInfo: 'Please ensure pets are secured during the cleaning service. Additional fees may apply for extremely dirty conditions or special cleaning requests.',
+    providerName: 'CleanPro Services',
+    providerImage: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80',
+    providerSince: 'January 2020',
+    providerBio: 'CleanPro Services has been providing top-quality cleaning services for over 3 years. Our team of experienced professionals is dedicated to making your home shine.',
+    completedJobs: 1240
+  },
+  {
+    id: '2',
+    title: 'Emergency Plumbing Repair',
+    description: 'Fast and reliable emergency plumbing services. Available 24/7 for all your plumbing emergencies including leaks, clogs, and broken pipes.',
+    price: 75,
+    category: 'Plumbing',
+    imageUrl: 'https://images.unsplash.com/photo-1606274741559-d3a3b4857be2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+    rating: 4.9,
+    reviewCount: 89,
+    location: 'Chicago, IL',
+    duration: '1-2 hours',
+    availability: '24/7, including holidays',
+    includes: [
+      'Emergency response',
+      'Leak detection and repair',
+      'Drain unclogging',
+      'Pipe repair',
+      'Basic parts included'
+    ],
+    providerName: 'Quick Fix Plumbing',
+    providerImage: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80',
+    providerSince: 'March 2018',
+    providerBio: 'With over 15 years of experience in the plumbing industry, Quick Fix Plumbing specializes in emergency repairs and maintenance services. We pride ourselves on fast response times and quality workmanship.',
+    completedJobs: 2150
+  },
+  {
+    id: '3',
+    title: 'Math Tutoring for High School Students',
+    description: 'Expert math tutoring for high school students. Specializing in algebra, calculus, geometry, and test preparation. Personalized lessons tailored to your learning style.',
+    price: 45,
+    category: 'Tutoring',
+    imageUrl: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+    rating: 4.7,
+    reviewCount: 64,
+    location: 'Online / Boston, MA',
+    duration: '1 hour',
+    availability: 'Mon-Fri, 3pm-8pm; Sat, 10am-4pm',
+    includes: [
+      'Personalized lesson plans',
+      'Homework help',
+      'Practice problems',
+      'Test preparation',
+      'Progress reports'
+    ],
+    additionalInfo: 'Sessions can be conducted online via Zoom or in-person. Group rates available for 2-3 students.',
+    providerName: 'Dr. Michael Chen',
+    providerSince: 'September 2019',
+    providerBio: 'Dr. Chen holds a Ph.D. in Mathematics from MIT and has been teaching for over 10 years. He specializes in making complex mathematical concepts accessible to students of all levels.',
+    completedJobs: 850
+  },
+  {
+    id: '4',
+    title: 'Professional Portrait Photography',
+    description: 'Capture your best self with our professional portrait photography service. Perfect for LinkedIn profiles, professional websites, or personal branding.',
+    price: 120,
+    category: 'Photography',
+    imageUrl: 'https://images.unsplash.com/photo-1542038784456-1ea8e935640e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+    rating: 4.9,
+    reviewCount: 78,
+    location: 'Los Angeles, CA',
+    duration: '1-2 hours',
+    availability: 'Tue-Sun, by appointment',
+    includes: [
+      '1-hour photo session',
+      'Multiple outfit changes',
+      'Professional lighting',
+      '5 fully edited digital photos',
+      'Online gallery of all photos'
+    ],
+    additionalInfo: 'Additional edited photos available for purchase. Indoor studio and outdoor locations available.',
+    providerName: 'Elena Rodriguez Photography',
+    providerImage: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80',
+    providerSince: 'June 2017',
+    providerBio: 'Elena is an award-winning photographer with a passion for capturing authentic portraits. Her work has been featured in several magazines and exhibitions.',
+    completedJobs: 620
+  },
+  {
+    id: '5',
+    title: 'Lawn Mowing and Garden Maintenance',
+    description: 'Regular lawn mowing and garden maintenance service to keep your outdoor space looking its best. We provide professional equipment and eco-friendly practices.',
+    price: 50,
+    category: 'Gardening',
+    imageUrl: 'https://images.unsplash.com/photo-1589923188900-85dae523342b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+    rating: 4.6,
+    reviewCount: 112,
+    location: 'Seattle, WA',
+    duration: '1-3 hours',
+    availability: 'Mon-Fri, 8am-5pm',
+    includes: [
+      'Lawn mowing',
+      'Edge trimming',
+      'Debris cleanup',
+      'Garden bed weeding',
+      'Fertilization (upon request)'
+    ],
+    providerName: 'Green Thumb Landscaping',
+    providerSince: 'April 2016',
+    providerBio: 'Green Thumb Landscaping is a family-owned business with over 10 years of experience in garden maintenance. We take pride in creating beautiful outdoor spaces for our clients.',
+    completedJobs: 3200
+  },
+  {
+    id: '6',
+    title: 'Electrical Wiring and Repairs',
+    description: 'Licensed electrician providing safe and reliable electrical services. From simple repairs to complete rewiring, we handle all your electrical needs.',
+    price: 85,
+    category: 'Electrical',
+    imageUrl: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80',
+    rating: 4.8,
+    reviewCount: 95,
+    location: 'Denver, CO',
+    duration: '1-4 hours',
+    availability: 'Mon-Sat, 7am-7pm',
+    includes: [
+      'Safety inspection',
+      'Outlet and switch repair',
+      'Lighting installation',
+      'Circuit troubleshooting',
+      'Minor parts included'
+    ],
+    additionalInfo: 'All work is performed by licensed and insured electricians. We follow all local codes and safety standards.',
+    providerName: 'Bright Spark Electric',
+    providerImage: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80',
+    providerSince: 'January 2015',
+    providerBio: 'Bright Spark Electric is a team of certified electricians with over 20 years of combined experience. We specialize in residential and small commercial electrical services.',
+    completedJobs: 1870
+  },
+  {
+    id: '7',
+    title: 'Mobile Car Detailing',
+    description: 'Premium car detailing service that comes to you. We provide a thorough cleaning of your vehicle\'s interior and exterior, leaving it looking like new.',
+    price: 150,
+    category: 'Automotive',
+    imageUrl: 'https://images.unsplash.com/photo-1607860108855-64acf2078ed9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80',
+    rating: 4.7,
+    reviewCount: 83,
+    location: 'Miami, FL',
+    duration: '2-3 hours',
+    availability: 'Mon-Sun, by appointment',
+    includes: [
+      'Exterior wash and wax',
+      'Interior vacuuming',
+      'Dashboard and console cleaning',
+      'Window cleaning',
+      'Tire and rim detailing'
+    ],
+    additionalInfo: 'Additional services available: leather conditioning, engine bay cleaning, headlight restoration. We bring our own water and power supply.',
+    providerName: 'Pristine Auto Detailing',
+    providerSince: 'July 2018',
+    providerBio: 'Pristine Auto Detailing specializes in mobile car detailing services using eco-friendly products. Our team is passionate about cars and dedicated to providing exceptional service.',
+    completedJobs: 1450
+  },
+  {
+    id: '8',
+    title: 'Website Design and Development',
+    description: 'Custom website design and development services for small businesses and entrepreneurs. We create responsive, user-friendly websites that help you achieve your business goals.',
+    price: 65,
+    category: 'Design',
+    imageUrl: 'https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+    rating: 4.9,
+    reviewCount: 47,
+    location: 'Remote / Austin, TX',
+    duration: 'Varies by project',
+    availability: 'Mon-Fri, 9am-6pm',
+    includes: [
+      'Custom design',
+      'Mobile responsiveness',
+      'Basic SEO setup',
+      'Contact form',
+      '1 hour of training'
+    ],
+    additionalInfo: 'We specialize in WordPress, Shopify, and custom-coded websites. Maintenance packages available after completion.',
+    providerName: 'Digital Craft Studios',
+    providerImage: 'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+    providerSince: 'October 2019',
+    providerBio: 'Digital Craft Studios is a team of designers and developers passionate about creating beautiful, functional websites. We focus on delivering websites that not only look great but also drive results.',
+    completedJobs: 210
+  }
+];
+
+export const mockReviews: Review[] = [
+  {
+    id: '101',
+    serviceId: '1',
+    userId: 'user1',
+    userName: 'Sarah Johnson',
+    userAvatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80',
+    rating: 5,
+    comment: 'Absolutely amazing service! My house has never been this clean. The team was professional, thorough, and paid attention to every detail. Will definitely book again!',
+    date: '2023-06-15'
+  },
+  {
+    id: '102',
+    serviceId: '1',
+    userId: 'user2',
+    userName: 'Michael Chen',
+    userAvatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80',
+    rating: 4,
+    comment: 'Very good cleaning service. They did a great job with most areas, though I noticed a few spots under furniture were missed. Still, I would recommend them.',
+    date: '2023-05-22'
+  },
+  {
+    id: '103',
+    serviceId: '1',
+    userId: 'user3',
+    userName: 'Emily Rodriguez',
+    userAvatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80',
+    rating: 5,
+    comment: 'I\'ve tried several cleaning services, and this is by far the best. The cleaners were punctual, efficient, and left my home spotless. The eco-friendly products were a plus!',
+    date: '2023-04-10'
+  },
+  {
+    id: '104',
+    serviceId: '2',
+    userId: 'user4',
+    userName: 'David Wilson',
+    rating: 5,
+    comment: 'Had a major leak at 2 AM and they were at my door within 30 minutes. Fixed the problem quickly and professionally. Saved me from major water damage. Worth every penny!',
+    date: '2023-06-02'
+  },
+  {
+    id: '105',
+    serviceId: '2',
+    userId: 'user5',
+    userName: 'Jennifer Lee',
+    rating: 5,
+    comment: 'Excellent service! The plumber was knowledgeable, efficient, and explained everything clearly. Fixed my clogged drain in no time. Highly recommend!',
+    date: '2023-05-18'
+  },
+  {
+    id: '106',
+    serviceId: '3',
+    userId: 'user6',
+    userName: 'Robert Brown',
+    rating: 5,
+    comment: 'Dr. Chen is an exceptional math tutor. My son\'s grades improved from a C to an A- in just two months. He explains complex concepts in a way that\'s easy to understand.',
+    date: '2023-06-10'
+  },
+  {
+    id: '107',
+    serviceId: '3',
+    userId: 'user7',
+    userName: 'Lisa Garcia',
+    rating: 4,
+    comment: 'Great tutor who really knows his subject. My daughter feels much more confident with calculus now. The only reason for 4 stars instead of 5 is occasional scheduling difficulties.',
+    date: '2023-05-05'
+  }
+];
+
+export const mockBookings: Booking[] = [
+  {
+    id: '201',
+    serviceId: '1',
+    serviceName: 'Professional House Cleaning',
+    providerId: 'provider1',
+    providerName: 'CleanPro Services',
+    userId: 'currentUser',
+    date: '2023-07-15',
+    time: '10:00 AM',
+    duration: '3 hours',
+    price: 105,
+    status: 'Upcoming',
+    location: 'Your Home Address',
+    notes: 'Please focus on kitchen and bathrooms',
+    reviewed: false
+  },
+  {
+    id: '202',
+    serviceId: '3',
+    serviceName: 'Math Tutoring for High School Students',
+    providerId: 'provider3',
+    providerName: 'Dr. Michael Chen',
+    userId: 'currentUser',
+    date: '2023-06-20',
+    time: '4:00 PM',
+    duration: '1 hour',
+    price: 45,
+    status: 'Completed',
+    location: 'Online (Zoom)',
+    reviewed: false
+  },
+  {
+    id: '203',
+    serviceId: '5',
+    serviceName: 'Lawn Mowing and Garden Maintenance',
+    providerId: 'provider5',
+    providerName: 'Green Thumb Landscaping',
+    userId: 'currentUser',
+    date: '2023-06-05',
+    time: '9:00 AM',
+    duration: '2 hours',
+    price: 100,
+    status: 'Completed',
+    location: 'Your Home Address',
+    reviewed: true
+  },
+  {
+    id: '204',
+    serviceId: '2',
+    serviceName: 'Emergency Plumbing Repair',
+    providerId: 'provider2',
+    providerName: 'Quick Fix Plumbing',
+    userId: 'currentUser',
+    date: '2023-05-12',
+    time: '2:30 PM',
+    duration: '1.5 hours',
+    price: 112.50,
+    status: 'Completed',
+    location: 'Your Home Address',
+    notes: 'Leaking pipe under kitchen sink',
+    reviewed: true
+  }
+];
